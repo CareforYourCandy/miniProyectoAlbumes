@@ -1,0 +1,43 @@
+﻿@model IEnumerable<PeliApp.Models.Comment>
+
+@{
+    ViewData["Title"] = "Comentarios";
+}
+
+<h2>Comentarios de la foto</h2>
+
+
+<table class="table">
+    <thead>
+        <tr>
+                
+                <th>
+                    @Html.DisplayNameFor(model => model.name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.email)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.body)
+                </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+           
+            <td>
+                @Html.DisplayFor(modelItem => item.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.body)
+            </td>
+        
+        </tr>
+}
+    </tbody>
+</table>

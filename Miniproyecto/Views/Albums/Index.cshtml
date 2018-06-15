@@ -1,0 +1,31 @@
+﻿@model IEnumerable<Miniproyecto.Models.Album>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index de albumes</h2>
+
+
+<table class="table">
+    <thead>
+        <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.title)
+                </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.title)
+            </td>
+            <td>
+               @Html.ActionLink("Ver fotos", "Index", "Photos",new {refAlbum = item.id} )
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

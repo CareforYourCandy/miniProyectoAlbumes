@@ -1,0 +1,52 @@
+﻿
+
+@model IEnumerable<PeliApp.Models.Photo>
+
+@{
+    ViewData["Title"] = "Fotos";
+}
+
+<h2>Fotos del album </h2>
+
+
+<table class="table">
+    <thead>
+        <tr>
+           
+            <th>
+                @Html.DisplayNameFor(model => model.title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.url)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.thumbnailUrl)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+              
+                <td>
+                    @Html.DisplayFor(modelItem => item.title)
+                </td>
+                <td>
+                    <img src=@item.url />
+                </td>
+                <td>
+                    <img src=@item.thumbnailUrl />
+                </td>
+                <td>
+                    @Html.ActionLink("Ver comentarios", "Index", "Comments", new { refPhoto = item.id })
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+
